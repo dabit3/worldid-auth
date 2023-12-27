@@ -23,7 +23,6 @@ export default function Home() {
   }, [])
 
   async function handleVerify(data: any) {
-    data.signal = address
     const response = await fetch('/api/verify', {
       method: 'POST',
       headers: {
