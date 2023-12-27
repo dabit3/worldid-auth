@@ -97,7 +97,7 @@ export default function Home() {
               !profile && (
                 <Button
                   onClick={() => setOpen(true)}
-                  variant={'outline'} className='mt-2'>
+                  variant={'outline'} className='mt-3'>
                     Connect your Web3 Social Account
                   </Button>
                 )
@@ -132,7 +132,7 @@ export default function Home() {
                 {({ open }) => (
                   <Button
                     onClick={open}
-                  >Sign in with World ID</Button>
+                  >Verify with World ID</Button>
                 )}
               </IDKitWidget>
               <div className='relative py-4'>
