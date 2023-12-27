@@ -23,7 +23,6 @@ export default function Home() {
   }, [])
 
   async function handleVerify(data: any) {
-    console.log('handle verify data: ' , data)
     data.signal = address
     const response = await fetch('/api/verify', {
       method: 'POST',
@@ -36,6 +35,9 @@ export default function Home() {
     if (response.code === 'success') {
       setSuccess(true)
       toast("Successfully authenticated with World ID.")
+    } else {
+      toast("Authenticated failed with World ID.")
+      console.log('error:', response.wldResponse)
     }
   }
   if (!isLoaded) return null

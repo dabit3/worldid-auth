@@ -5,7 +5,7 @@ import { ConnectKitProvider as Provider, getDefaultConfig } from "connectkit";
 const config = createConfig(
   getDefaultConfig({
     alchemyId: process.env.ALCHEMY_ID,
-    walletConnectProjectId: process.env.WALLETCONNECT_PROJECT_ID || "",
+    walletConnectProjectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || "",
     appName: "WorldCoin ID Connect",
   }),
 );

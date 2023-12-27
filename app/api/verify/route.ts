@@ -19,13 +19,9 @@ export async function POST(req:NextRequest) {
     body: JSON.stringify(reqBody)
   })
   const wldResponse = await verifyRes.json()
-
-  console.log('wldResponse: ', wldResponse)
-
   if (verifyRes.status == 200) {
     return NextResponse.json({ code: "success" });
   } else {
-    return NextResponse.json({ code: "failure" });
+    return NextResponse.json({ code: "failure", wldResponse });
   }
-  
 }
