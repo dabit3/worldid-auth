@@ -5,7 +5,7 @@ To learn more about WorldID click [here](https://docs.worldcoin.org/)
 <img
   src="worldid.png"
   width="600"
->
+/>
 
 ### Running the app
 
