@@ -32,6 +32,8 @@ npm install
 
 3. Create WorldID Action
 
+> Be sure to set the Maximum Verifications Per User to "Unlimited"
+
 <img
   src="wcid-action.png"
   width="700"
