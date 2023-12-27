@@ -126,6 +126,7 @@ export default function Home() {
                 action={process.env.NEXT_PUBLIC_WC_ACTION || ''}
                 onSuccess={(message) => console.log(message)}
                 handleVerify={handleVerify}
+                signal=""
                 verification_level={VerificationLevel.Device}
               >
                 {({ open }) => (

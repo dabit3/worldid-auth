@@ -7,6 +7,7 @@ export async function POST(req:NextRequest) {
     nullifier_hash: body.nullifier_hash,
     proof: body.proof,
     verification_level: body.verification_level,
+    signal: body.signal ?? "",
     action: process.env.NEXT_PUBLIC_WC_ACTION
   }
 
