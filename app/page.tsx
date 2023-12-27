@@ -67,7 +67,7 @@ export default function Home() {
             ml-3 text-lg'>Acme Inc</p>
           </div>
           <div>
-           Sybil-resistant identity verification powered by <Link rel='no-opener' target="_blank" href="https://docs.worldcoin.org/">World ID</Link>.
+           Sybil-resistant identity verification powered by <Link rel='no-opener' target="_blank" href="https://docs.worldcoin.org/">WorldID</Link>.
           </div>
         </div>
        </div>
