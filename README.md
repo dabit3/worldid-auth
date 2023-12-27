@@ -41,11 +41,18 @@ npm install
 
 ```sh
 # rename .env.local.example to .env.local
+
+# Airstack API Key
 AIRSTACK_API_KEY=""
-NEXT_PUBLIC_WC_ACTION=""
+
+# WalletConnect Project ID
 NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=""
 
-# !!! remove "_app" from the WorldCoin App ID before setting !!!
+# WorldCoin ID Action Name
+NEXT_PUBLIC_WC_ACTION=""
+
+# Worldcoin ID App Name
+# Remove "_app" from the WorldCoin App ID before setting
 NEXT_PUBLIC_WLD_APP_ID=""
 ```
 
