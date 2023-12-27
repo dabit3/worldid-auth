@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={inter.className} style={{ height: 'calc(100vh - 60px)' }}>
         <ThemeProvider
           attribute="class"

@@ -17,7 +17,6 @@ export function ContextProvider ({ children }) {
       method: 'POST',
       body: JSON.stringify({ address }),
      }).then((res) => res.json())
-     console.log('response: ', response)
      if (response?.data?.Socials?.Social) {
         setProfile(response.data.Socials.Social[response.data.Socials.Social.length - 1])
      } else {

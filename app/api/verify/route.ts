@@ -8,10 +8,10 @@ export async function POST(req:NextRequest) {
     proof: body.proof,
     verification_level: body.verification_level,
     signal: body.signal ?? "",
-    action: 'auth'
+    action: process.env.NEXT_PUBLIC_WC_ACTION
   }
 
-  const verifyRes = await fetch(`https://developer.worldcoin.org/api/v1/verify/${process.env.NEXT_PUBLIC_WLD_APP_ID}`, {
+  const verifyRes = await fetch(`https://developer.worldcoin.org/api/v1/verify/app_${process.env.NEXT_PUBLIC_WLD_APP_ID}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

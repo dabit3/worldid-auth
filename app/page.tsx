@@ -121,8 +121,8 @@ export default function Home() {
             </div>
             <div className='mt-5 flex flex-col'>
               <IDKitWidget
-                app_id="app_a3f8b6c7394b90aea29eed339e8446a5"
-                action="auth"
+                app_id={`app_${process.env.NEXT_PUBLIC_WLD_APP_ID}`}
+                action={process.env.NEXT_PUBLIC_WC_ACTION || ''}
                 onSuccess={(message) => console.log(message)}
                 handleVerify={handleVerify}
                 signal={address}
