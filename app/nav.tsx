@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button'
 import { useDisconnect } from 'wagmi'
 export function Nav() {
   const [isClient, setIsClient] = useState(false)
-  const { address, setProfile } = useContext<any>(AppContext)
+  const { address, setProfile, setVerified } = useContext<any>(AppContext)
   const { disconnect } = useDisconnect()
   useEffect(() => {
     setIsClient(true)
@@ -43,6 +43,7 @@ export function Nav() {
               () => {
                 disconnect()
                 setProfile(null)
+                setVerified(false)
               }
             } className='text-xs' variant='link'>
               Disconnect

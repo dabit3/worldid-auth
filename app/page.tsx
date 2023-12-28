@@ -4,25 +4,32 @@ import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { useModal } from "connectkit"
 import { useAccount } from "wagmi";
-import { useState, useEffect, useContext } from 'react'
-import Link from 'next/link'
+import { useState, useEffect, useContext, useRef } from 'react'
 import { IDKitWidget, VerificationLevel } from '@worldcoin/idkit'
 import { Toaster } from "@/components/ui/sonner"
 import { toast } from "sonner"
 import { AppContext } from './context'
+import Link from 'next/link'
 
 export default function Home() {
   const { address } = useAccount()
   const [isLoaded, setIsLoaded] = useState(false)
-  const [success, setSuccess] = useState(false)
   const { setOpen } = useModal()
-  const { profile } = useContext<any>(AppContext)
+  const { profile, verified, setVerified } = useContext<any>(AppContext)
+  const buttonRef = useRef<any>(null)
 
   useEffect(() => {
     setIsLoaded(true)
   }, [])
 
+  useEffect(() => {
+    if (address && !verified) {
+      buttonRef.current?.click()
+    }
+  }, [address])
+
   async function handleVerify(data: any) {
+    data.signal = address
     const response = await fetch('/api/verify', {
       method: 'POST',
       headers: {
@@ -30,9 +37,8 @@ export default function Home() {
       },
       body: JSON.stringify(data)
     }).then(res => res.json())
-    console.log('response: ', response)
     if (response.code === 'success') {
-      setSuccess(true)
+      setVerified(true)
       toast("Successfully authenticated with World ID.")
     } else {
       toast("Authenticated failed with World ID.")
@@ -69,25 +75,21 @@ export default function Home() {
           </div>
           <div>
            <p className='text-white'>
-           Sybil-resistant identity verification powered by <Link rel='no-opener' target="_blank" href="https://docs.worldcoin.org/">WorldID</Link>.
+           Sybil-resistant identity verification powered by <Link rel='no-opener' target="_blank" href="https://docs.worldcoin.org/">World ID</Link>.
            </p>
           </div>
         </div>
        </div>
        {
-        success && (
+        verified && (
           <div
           className='
           border-l items-center justify-center
           flex flex-1 flex-col p-6 sm:p-8 '
           >
-            {
-              !profile && (
-                <p className='text-sm text-muted-foreground'>
-                 🎉 Welcome!
-                </p>
-              )
-            }
+            <p>
+              🎉 &nbsp;Successfully authenticated with World ID.
+            </p>
             {
               address && profile && (
                 <p className='text-sm mt-3 text-muted-foreground'>
@@ -95,21 +97,12 @@ export default function Home() {
                 </p>
               )
             }
-            {
-              !profile && (
-                <Button
-                  onClick={() => setOpen(true)}
-                  variant={'outline'} className='mt-3'>
-                    Connect your Web3 Social Account
-                  </Button>
-                )
-            }
           </div>
         )
        }
 
       {
-        !success && (
+        !verified && (
           <div
           className='
           md:rounded-bl-none rounded-bl-xl 
@@ -128,38 +121,49 @@ export default function Home() {
                 action={process.env.NEXT_PUBLIC_WC_ACTION || ''}
                 onSuccess={(message) => console.log(message)}
                 handleVerify={handleVerify}
-                signal=""
+                signal={address}
                 verification_level={VerificationLevel.Device}
               >
                 {({ open }) => (
                   <Button
+                    ref={buttonRef}
+                    className='w-[290px] sm:w-[320px] '
                     onClick={open}
                   >Verify with World ID</Button>
                 )}
               </IDKitWidget>
-              <div className='relative py-4'>
-                <Separator
-                  className='mt-6 absolute inset-0 flex items-center'
-                />
-                <div className='relative flex justify-center text-xs uppercase'>
-                  <p className='bg-background px-2 text-muted-foreground'>
-                    or
-                  </p>
-                </div>
-              </div>
-              <Button
-              asChild
-              variant="outline" className='
-              w-[290px] sm:w-[320px] 
-              rounded-lg'>
-                <Link
-                  href="https://apps.apple.com/no/app/world-app-worldcoin-wallet/id1560859847"
-                  target='_blank'
-                  rel='noopener noreferrer'
-                >
-                Get the World ID App
-                </Link>
-              </Button>
+              {
+                !address && (
+                  <>
+                    <div className='relative py-4'>
+                      <Separator
+                        className='mt-6 absolute inset-0 flex items-center'
+                      />
+                      <div className='relative flex justify-center text-xs uppercase'>
+                        <p className='bg-background px-2 text-muted-foreground'>
+                          or
+                        </p>
+                      </div>
+                    </div>
+                    <Button
+                    onClick={() => setOpen(true)}
+                    variant="outline" className='
+                    w-[290px] sm:w-[320px] 
+                    rounded-lg'>
+                      Verify with Wallet & World ID
+                    </Button>
+                    <Link
+                      href="https://apps.apple.com/no/app/world-app-worldcoin-wallet/id1560859847"
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
+                      <p className='text-muted-foreground text-xs mt-4 text-center'>
+                        Get the WorldID App -&gt;
+                      </p>
+                    </Link>
+                  </>
+                )
+              }
             </div>
           </div>
         )

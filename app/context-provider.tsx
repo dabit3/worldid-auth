@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react'
 export function ContextProvider ({ children }) {
   const { address } = useAccount()
   const [profile, setProfile] = useState<any>(null)
+  const [verified, setVerified] = useState(false)
 
   useEffect(() => {
     if (address) fetchProfile()
@@ -34,7 +35,9 @@ export function ContextProvider ({ children }) {
       value={{
         address,
         profile,
-        setProfile
+        setProfile,
+        setVerified,
+        verified
       } as any }
     >
       {children}
