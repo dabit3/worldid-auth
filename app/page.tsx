@@ -152,18 +152,18 @@ export default function Home() {
                     rounded-lg'>
                       Verify with Wallet & World ID
                     </Button>
-                    <Link
-                      href="https://apps.apple.com/no/app/world-app-worldcoin-wallet/id1560859847"
-                      target='_blank'
-                      rel='noopener noreferrer'
-                    >
-                      <p className='text-muted-foreground text-xs mt-4 text-center'>
-                        Get the WorldID App -&gt;
-                      </p>
-                    </Link>
                   </>
                 )
               }
+              <Link
+                href="https://apps.apple.com/no/app/world-app-worldcoin-wallet/id1560859847"
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                <p className='text-muted-foreground text-xs mt-4 text-center'>
+                  Get the WorldID App -&gt;
+                </p>
+              </Link>
             </div>
           </div>
         )
