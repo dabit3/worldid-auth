@@ -31,9 +31,24 @@ export function Nav() {
               alt="Worldcoin Logo"
             />
               <p className='ml-2 text-sm'>
-              <span className='font-bold'>world</span> auth
+              <span className='font-bold'>World</span> Auth
             </p>
           </div>
+        </Link>
+        <Link
+          href="https://worldcoin.org/world-id"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <p
+            className='
+            hover:text-foreground
+            md:ml-8
+            ml-6 text-sm text-muted-foreground
+            '
+          >
+            Learn More
+          </p>
         </Link>
       </div>
       <div className='flex items-center'>
