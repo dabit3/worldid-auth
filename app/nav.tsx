@@ -6,6 +6,7 @@ import { AppContext } from './context'
 import { useContext, useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { useDisconnect } from 'wagmi'
+import { GitHubLogoIcon } from '@radix-ui/react-icons'
 export function Nav() {
   const [isClient, setIsClient] = useState(false)
   const { address, setProfile, setVerified } = useContext<any>(AppContext)
@@ -30,7 +31,7 @@ export function Nav() {
               height={40}
               alt="Worldcoin Logo"
             />
-              <p className='ml-2 text-sm'>
+              <p className='md:ml-1 text-sm'>
               <span className='font-bold'>World</span> Auth
             </p>
           </div>
@@ -44,11 +45,21 @@ export function Nav() {
             className='
             hover:text-foreground
             md:ml-8
-            ml-6 text-sm text-muted-foreground
+            ml-5 text-sm text-muted-foreground
             '
           >
             Learn More
           </p>
+        </Link>
+        <Link
+          href="https://github.com/dabit3/worldid-auth"
+          target='_blank'
+          rel="noopener noreferrer"
+        >
+          <GitHubLogoIcon
+            className="
+            md:ml-8 ml-5 hover:text-foreground text-muted-foreground"
+          />
         </Link>
       </div>
       <div className='flex items-center'>
