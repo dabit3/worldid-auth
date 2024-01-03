@@ -9,7 +9,7 @@ import { useDisconnect } from 'wagmi'
 import { GitHubLogoIcon } from '@radix-ui/react-icons'
 export function Nav() {
   const [isClient, setIsClient] = useState(false)
-  const { address, setProfile, setVerified } = useContext<any>(AppContext)
+  const { address, setProfile, setVerified, verified } = useContext<any>(AppContext)
   const { disconnect } = useDisconnect()
   useEffect(() => {
     setIsClient(true)
@@ -64,7 +64,7 @@ export function Nav() {
       </div>
       <div className='flex items-center'>
         {
-          address && (
+          (verified || address) && (
             <Button onClick={
               () => {
                 disconnect()

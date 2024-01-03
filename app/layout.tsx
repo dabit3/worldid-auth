@@ -22,7 +22,7 @@ export default function RootLayout({
       <body className={inter.className} style={{ height: 'calc(100vh - 60px)' }}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
