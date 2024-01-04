@@ -2,6 +2,8 @@
 
 To learn more about WorldID click [here](https://docs.worldcoin.org/)
 
+> This app implements unlimited verifications for more of a traditional authentication flow, for single use verification for sybil resistance, set the `Verifications per person` to be __Unique__.
+
 <img
   src="worldid.png"
   width="800"
