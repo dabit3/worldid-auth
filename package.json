@@ -14,10 +14,11 @@
     "@radix-ui/react-icons": "^1.3.0",
     "@radix-ui/react-separator": "^1.0.3",
     "@radix-ui/react-slot": "^1.0.2",
+    "@tanstack/react-query": "^5.20.5",
     "@worldcoin/idkit": "^1.1.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
-    "connectkit": "^1.5.3",
+    "connectkit": "^1.7.1",
     "next": "14.0.4",
     "next-themes": "^0.2.1",
     "react": "^18",
@@ -25,8 +26,8 @@
     "sonner": "^1.3.1",
     "tailwind-merge": "^2.2.0",
     "tailwindcss-animate": "^1.0.7",
-    "viem": "^1.21.1",
-    "wagmi": "^1.4.12"
+    "viem": "2.x",
+    "wagmi": "^2.5.7"
   },
   "devDependencies": {
     "@types/node": "^20",
