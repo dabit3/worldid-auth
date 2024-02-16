@@ -129,10 +129,16 @@ export default function Home() {
                   <>
                     <div className='relative py-4'>
                       <Separator
-                        className='mt-6 absolute inset-0 flex items-center'
+                        className='
+                          mt-6 absolute inset-0 flex items-center
+                        '
                       />
-                      <div className='relative flex justify-center text-xs uppercase'>
-                        <p className='bg-background px-2 text-muted-foreground'>
+                      <div className='
+                       relative flex justify-center text-xs uppercase
+                      '>
+                        <p className='
+                          bg-background px-2 text-muted-foreground
+                        '>
                           or
                         </p>
                       </div>
@@ -152,7 +158,9 @@ export default function Home() {
                 target='_blank'
                 rel='noopener noreferrer'
               >
-                <p className='text-muted-foreground text-xs mt-4 text-center'>
+                <p className='
+                  text-muted-foreground text-xs mt-4 text-center
+                '>
                   Get the WorldID App -&gt;
                 </p>
               </Link>

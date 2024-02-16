@@ -17,9 +17,7 @@ export function Nav() {
   if (!isClient) return null
   return (
     <div
-      className="
-      flex border-b
-      px-6 py-3"
+      className="flex border-b px-6 py-3"
     >
       <div className='flex flex-1 items-center'>
         <Link href="/">
@@ -43,8 +41,7 @@ export function Nav() {
         >
           <p
             className='
-            hover:text-foreground
-            md:ml-8
+            hover:text-foreground md:ml-8
             ml-5 text-sm text-muted-foreground
             '
           >
@@ -57,8 +54,7 @@ export function Nav() {
           rel="noopener noreferrer"
         >
           <GitHubLogoIcon
-            className="
-            md:ml-8 ml-5 hover:text-foreground text-muted-foreground"
+            className="md:ml-8 ml-5 hover:text-foreground text-muted-foreground"
           />
         </Link>
       </div>

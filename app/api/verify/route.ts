@@ -1,5 +1,7 @@
 import { NextResponse, NextRequest } from "next/server"
 
+const endpoint = `https://developer.worldcoin.org/api/v1/verify/app_${process.env.NEXT_PUBLIC_WLD_APP_ID}`
+
 export async function POST(req:NextRequest) {
   const body = await req.json()
   const reqBody = {
@@ -11,7 +13,7 @@ export async function POST(req:NextRequest) {
     action: process.env.NEXT_PUBLIC_WC_ACTION
   }
 
-  const verifyRes = await fetch(`https://developer.worldcoin.org/api/v1/verify/app_${process.env.NEXT_PUBLIC_WLD_APP_ID}`, {
+  const verifyRes = await fetch(endpoint, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
