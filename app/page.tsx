@@ -49,21 +49,14 @@ export default function Home() {
 
   return (
     <main className="
-    p-4 sm:p-12
-    flex flex-1 h-full">
+    p-4 sm:p-12 flex flex-1 h-full">
       <div className="
-      rounded-xl
-      border
-      flex-col md:flex-row
-      flex flex-1
+      rounded-xl border flex-col md:flex-row flex flex-1
       ">
        <div
        className='
-       p-6 sm:p-8 
-       rounded-tl-xl rounded-tr-xl
-       md:rounded-tr-none
-       md:rounded-tl-xl md:rounded-bl-xl
-       flex flex-1 bg-secondary-100 bg-zinc-900'
+       p-6 sm:p-8 rounded-tl-xl rounded-tr-xl md:rounded-tr-none
+       md:rounded-tl-xl md:rounded-bl-xl flex flex-1 bg-secondary-100 bg-zinc-900'
        >
         <div className='flex items-start flex-col'>
           <div className='flex justify-center flex-1 '>
@@ -105,9 +98,8 @@ export default function Home() {
         !verified && (
           <div
           className='
-          md:rounded-bl-none rounded-bl-xl 
-          border-l items-center justify-center
-          flex flex-1 flex-col p-6 sm:p-8 '
+          md:rounded-bl-none rounded-bl-xl border-l
+          items-center justify-center flex flex-1 flex-col p-6 sm:p-8 '
           >
             <div className='flex flex-col items-center'>
               <p className='font-medium text-2xl'>Login or create account</p>
